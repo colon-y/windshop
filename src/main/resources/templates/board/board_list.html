@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+<script th:inline="javascript">
+
+</script>
+
 </head>
 <body>
 
 <div id = "board_container">
 
     <h2>자유게시판</h2>
+    <div class="img-box">
+        <img src="/resources/web/images/ban_3.jpg" alt="배너" class="img_bn">
+    </div>
+
+    <div class="row">
+        <div th:each="product, status: %{productPage.content}">
+            <ul class="product_list">
+                <li>
+                    <th:block th:if="${#lists.isEmpty(productList)}">
+                        상품이 없습니다.
+                    </th:block>
+                    <th:block th:unless="${#lists.isEmpty(productList)}">
+                        <span class="product-img" style="height: 50px;">
+                            <img src="/displayFile?fileName=${row.fileName}" class="thumbnail-img">
+                        </span>
+                    </th:block>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 
 
