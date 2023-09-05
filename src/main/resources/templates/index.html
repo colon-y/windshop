@@ -21,10 +21,33 @@
     <div th:replace="/include :: navbar"></div>
 </div>
 
-<div id = "list_container">
-    <ul>
-       <li>index</li>
-    </ul>
+<!-- 슬릭 슬라이더-->
+<div id = "slider" th:each="mainBannerList : ${ mainBannerList }">
+    <div id = "top_slider">
+        <img src="">
+        <h4 class="top_slider_title"><span th:text="${mainBannerList.w_uname}"></span></h4>
+        <div th:if="${#strings.containsIgnoreCase(row.link_url, 'http')}">
+
+        </div>
+    </div>
+</div>
+
+<!-- 메인화면 상품 목록 -->
+<div id = "mainList">
+    <div>
+        <h3>오늘의 핫딜</h3>
+            <div id = "todayList" th:each="todayList : ${todayList}">
+                <ul>
+                    <li><p th:text=${todayList.w_uname}"></p></li>
+                    <li><!-- ${ todayList.w_uprice }--></li>
+                    <li style="margin-top: 20px;">
+                        <a href="">상품 보기</a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+
+
 </div>
 
 <div>

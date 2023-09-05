@@ -8,7 +8,9 @@ public class PayVo {
 
     private int payPrice;
 
-    private int pay
+    private int payPriceSum;
+
+    private int pno;
 
 
 }

@@ -1,16 +1,27 @@
 package vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.sql.Timestamp;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class ProductVo {
 
-    Integer w_pno;
+    private Integer w_pno;
 
-    String w_pname;
+    private String w_pname;
 
-    Integer w_pprice;
+    private Integer w_pprice;
 
-    String w_pcontent;
+    private String w_pcontent;
 
-    date w_pregdate;
+    private Timestamp w_pregdate;
 
-    int w_pamount;
+    private int w_pamount;
 }

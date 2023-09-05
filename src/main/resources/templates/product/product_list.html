@@ -10,15 +10,22 @@
 
 <div id = "productListBox">
 
-    <!-- 상품 리스트를 foreach문으로 나열 -->
-    <div>
-      <table>
-          <tr th:each="product : ${products}">
-              <td></td>
-          </tr>
-      </table>
+    <div class="row">
+        <div th:each="product, status: %{productPage.content}">
+            <ul class="product_list">
+                <li>
+                    <th:block th:if="${#lists.isEmpty(productList)}">
+                        상품이 없습니다.
+                    </th:block>
+                    <th:block th:unless="${#lists.isEmpty(productList)}">
+                        <span class="product-img" style="height: 50px;">
+                            <img src="/displayFile?fileName=${row.fileName}" class="thumbnail-img">
+                        </span>
+                    </th:block>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
     <div><!-- pagination --></div>
 

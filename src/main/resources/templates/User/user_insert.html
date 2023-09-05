@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>회원가입</title>
 </head>
 <body>
+
+<div class="user-wrap">
+
+    <div class="user_container">
+        <div>
+            <label for="userEmail">이메일</label>
+            <input type="text" id="userEmail" name = "userEmail" placeholder="아이디">
+        </div>
+        <div>
+            <label for="userPassword">비밀번호</label>
+            <input type="text" id="userPassword" name = "userPassword" placeholder="비밀번호">
+        </div>
+        <div>
+            <label for="userPassword">비밀번호확인</label>
+            <input type="text" id="userPasswordCheck" name = "userPasswordCheck" placeholder="비밀번호확인">
+        </div>
+        <div>
+            <label for="userName">유저명</label>
+            <input type="text" id="userName" name = "userName" placeholder="유저명">
+        </div>
+
+        <!-- 관리자라면 보이게 -->
+        <div th:if="${ userVo.w_ulevel == 3 }">
+            <select name = "userLevel">
+                <optgroup label="일반">
+                    <option>구매자</option>
+                    <option>판매자</option>
+                </optgroup>
+                <option>관리자</option>
+            </select>
+        </div>
+        <div id = "ulevelUnvisible" th:unless="${ userVo.w_ulevel != 3 }">
+            <!-- 안보임 -->
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function enterkey() {
+	if (window.event.keyCode == 13) {
+		 $("#searchBtn").click();
+    }
+}
+
+</script>
 
 </body>
 </html>

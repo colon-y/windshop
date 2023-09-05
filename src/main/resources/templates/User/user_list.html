@@ -2,9 +2,42 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>유저 목록</title>
 </head>
 <body>
+<div class="warp">
+
+    <div th:replace="/include :: header"></div>
+
+    <div th:replace="/include :: navbar"></div>
+
+    <div id = "userListBox">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>유저번호</th>
+                        <th>이메일</th>
+                        <th>유저명</th>
+                        <th>유저등급</th>
+                        <th>가입일자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${ userList }">
+                        <th th:text="${ user.w_uno }"></th>
+                        <td th:text="${ user.w_umail }"></td>
+                        <td th:text="${ user.w_uname }"></td>
+                        <td th:text="${ user.w_ulevel}"></td>
+                        <td th:text="${ user.w_uregdate }"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:replace="/include :: footer"></div>
+</div>
 
 <script>
 

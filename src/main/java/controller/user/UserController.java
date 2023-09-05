@@ -1,11 +1,12 @@
-package controller;
+package controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import service.UserService;
 
 @Controller
-public class ProductController {
+public class UserController {
 
     @Autowired
-    private ProductService productService;
+    private UserService userService;
 }

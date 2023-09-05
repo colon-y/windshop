@@ -1,7 +1,13 @@
 package vo;
 
+import lombok.*;
+
 import java.sql.Timestamp;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class BoardVo {
 
     private Integer w_bno;
